@@ -8,6 +8,13 @@ docker builder build \
     --pull \
     .
 ```
+## Build from GitHub
+```shell
+docker builder build \
+    --tag q4saibot/python \
+    --pull \
+    https://github.com/q4saibot/python.git#main
+```
 ## Run interactive
 ```shell
 docker container run \

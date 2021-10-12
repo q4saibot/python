@@ -14,14 +14,15 @@ LABEL description="Python base image"
 
 # Autor
 LABEL autor.nick="Q4.SaiBot" \
+      autor.email="Q4.SaiBot@GMail.com" \
       autor.name="Evgeny"
 
 
 # Install requirements packets
-WORKDIR /pip
+WORKDIR /tmp
 
 COPY   ./pip/requirements.txt \
-        /pip/requirements.txt
+        /tmp/requirements.txt
 
 RUN     pip install \
         --no-cache-dir \
@@ -30,12 +31,12 @@ RUN     pip install \
 
 
 # Main workdir
-WORKDIR /data
+WORKDIR /root/app
 
-COPY   ./data \
-        /data
+COPY   ./app \
+        /root/app
 
-VOLUME [ "/data" ]
+VOLUME [ "/root/app" ]
 
 
 # Entrypoint
